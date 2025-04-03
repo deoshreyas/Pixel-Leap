@@ -1,0 +1,163 @@
+[gd_scene load_steps=25 format=4 uid="uid://c7m32ps1uerau"]
+
+[ext_resource type="Script" uid="uid://clfoq3xaj770r" path="res://Scripts/Main.gd" id="1_k2mw1"]
+[ext_resource type="PackedScene" uid="uid://b403fyj1gb33r" path="res://Scenes/Levels/level_2.tscn" id="2_irw6p"]
+[ext_resource type="Shader" uid="uid://wqtjpvgabkbc" path="res://Shaders/scroll.gdshader" id="2_tjl6l"]
+[ext_resource type="Texture2D" uid="uid://mx77xgvtc13h" path="res://Assets/Backgrounds/Pink.png" id="3_3628d"]
+[ext_resource type="PackedScene" uid="uid://dup2wfmpogrby" path="res://Scenes/player.tscn" id="4_irw6p"]
+[ext_resource type="Script" uid="uid://kk8fektwx1fd" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_31phq"]
+[ext_resource type="Script" uid="uid://c4qq5wa4ceeg3" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_7hll7"]
+[ext_resource type="Script" uid="uid://cvffra6awtbl1" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_fayjm"]
+[ext_resource type="PackedScene" uid="uid://dwq33n3fssemf" path="res://Scenes/tile_map.tscn" id="8_nojx8"]
+[ext_resource type="FontFile" uid="uid://b17841n0v0l54" path="res://Assets/Text/Pixel Font.ttf" id="9_vvknj"]
+[ext_resource type="PackedScene" uid="uid://bro5j8nw16jks" path="res://Scenes/collectibles_ui_layer.tscn" id="10_ad63i"]
+[ext_resource type="PackedScene" uid="uid://p58hs5ikh1wf" path="res://Scenes/level_finished.tscn" id="11_pmbdk"]
+[ext_resource type="PackedScene" uid="uid://duddahvmkr1vs" path="res://Scenes/pause_menu.tscn" id="12_ksf1i"]
+[ext_resource type="Texture2D" uid="uid://bg1q26ywwqfw3" path="res://Assets/Buttons/Pause.png" id="13_vif5h"]
+[ext_resource type="PackedScene" uid="uid://y6g2s1fmndfj" path="res://Scenes/apple.tscn" id="14_i7ma5"]
+[ext_resource type="PackedScene" uid="uid://daidmop00pd1" path="res://Scenes/start_point.tscn" id="14_k2mw1"]
+[ext_resource type="PackedScene" uid="uid://46r5lb86ioa7" path="res://Scenes/end_point.tscn" id="15_3628d"]
+[ext_resource type="PackedScene" uid="uid://cnhr77jd6scet" path="res://Scenes/arrow.tscn" id="18_31phq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xbk3s"]
+shader = ExtResource("2_tjl6l")
+shader_parameter/speed = 0.25
+shader_parameter/x_movement = true
+shader_parameter/y_movement = true
+
+[sub_resource type="Resource" id="Resource_k7acu"]
+script = ExtResource("7_fayjm")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1tr"]
+size = Vector2(703, 428)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgpy0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2t4p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0pcbe"]
+
+[node name="Level 1" type="Node2D"]
+script = ExtResource("1_k2mw1")
+next_level = ExtResource("2_irw6p")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_xbk3s")
+offset_left = -34.0
+offset_top = -49.0
+offset_right = 686.0
+offset_bottom = 402.0
+texture = ExtResource("3_3628d")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("4_irw6p")]
+position = Vector2(69, 220)
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(123.837, 220)
+zoom = Vector2(2.15, 2.15)
+limit_left = -25
+limit_top = -36
+limit_right = 678
+limit_bottom = 392
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_31phq")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(123.837, 220)
+script = ExtResource("6_7hll7")
+follow_mode = 5
+follow_target = NodePath("../Player")
+zoom = Vector2(2.15, 2.15)
+tween_resource = SubResource("Resource_k7acu")
+follow_damping = true
+follow_damping_value = Vector2(0.15, 0.15)
+dead_zone_width = 0.143
+dead_zone_height = 0.173
+draw_limits = true
+limit_target = NodePath("../CameraBounds/CollisionShape2D")
+
+[node name="CameraBounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
+position = Vector2(326.5, 178)
+shape = SubResource("RectangleShape2D_5v1tr")
+disabled = true
+
+[node name="TileMap" parent="." instance=ExtResource("8_nojx8")]
+tile_map_data = PackedByteArray("AAD/////AAAPAAAAAAD//wAAAAAPAAEAAAD//wEAAAAPAAEAAAD//wIAAAAPAAEAAAD//wMAAAAPAAEAAAD//wQAAAAPAAEAAAD//wUAAAAPAAEAAAD//wYAAAAPAAEAAAD//wcAAAAPAAEAAAD//wgAAAAPAAEAAAD//wkAAAAPAAEAAAD//woAAAAPAAEAAAD//wsAAAAPAAEAAAD//wwAAAAPAAEAAAD//w0AAAAPAAEAAAD//w4AAAAPAAEAAAD//w8AAAAPAAEAAAD//xAAAAAPAAEAAAD//xEAAAAPAAEAAAD//xIAAAAPAAEAAAD//xMAAAAPAAEAAAD//xQAAAAPAAEAAAD//xUAAAAPAAEAAAD//xYAAAAPAAIAAAD//xcAAAAMAAEAAAAAABcAAAAMAAAAAAABABcAAAANAAAAAAACABcAAAANAAAAAAADABcAAAANAAAAAAAEABcAAAANAAAAAAAFABcAAAANAAAAAAAGABcAAAANAAAAAAAHABcAAAANAAAAAAAIABcAAAANAAAAAAAJABcAAAANAAAAAAAKABcAAAANAAAAAAALABcAAAANAAAAAAAMABcAAAANAAAAAAANABcAAAANAAAAAAAOABcAAAANAAAAAAAPABcAAAANAAAAAAAQABcAAAANAAAAAAARABcAAAANAAAAAAASABcAAAANAAAAAAATABcAAAANAAAAAAAUABcAAAANAAAAAAAVABcAAAANAAAAAAAWABcAAAANAAAAAAAXABcAAAANAAAAAAAYABcAAAANAAAAAAAZABcAAAANAAAAAAAaABcAAAANAAAAAAAbABcAAAANAAAAAAAcABcAAAANAAAAAAAdABcAAAANAAAAAAAeABcAAAANAAAAAAAfABcAAAANAAAAAAAgABcAAAANAAAAAAAhABcAAAANAAAAAAAiABcAAAANAAAAAAAjABcAAAANAAAAAAAkABcAAAANAAAAAAAlABcAAAANAAAAAAAmABcAAAANAAAAAAAnABcAAAANAAAAAAAoABcAAAAOAAAAAAApABcAAAAMAAEAAAApABYAAAAPAAIAAAApABUAAAAPAAEAAAApABQAAAAPAAEAAAApABMAAAAPAAEAAAApABIAAAAPAAEAAAApABEAAAAPAAEAAAApABAAAAAPAAEAAAApAA8AAAAPAAEA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")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer"]
+offset_right = 640.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="TimerText" type="Label" parent="UILayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_vvknj")
+theme_override_font_sizes/font_size = 20
+text = "0.0"
+horizontal_alignment = 1
+
+[node name="CollectiblesUILayer" parent="UILayer" instance=ExtResource("10_ad63i")]
+unique_name_in_owner = true
+CherryCount = false
+BananaCount = false
+KiwiCount = false
+MelonCount = false
+OrangeCount = false
+PineappleCount = false
+StrawberryCount = false
+EnemyCount = false
+
+[node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelFinished" parent="PauseCanvasLayer" instance=ExtResource("11_pmbdk")]
+
+[node name="PauseMenu" parent="PauseCanvasLayer" instance=ExtResource("12_ksf1i")]
+
+[node name="PauseButton" type="Button" parent="PauseCanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -39.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 39.0
+grow_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hgpy0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t2t4p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0pcbe")
+icon = ExtResource("13_vif5h")
+flat = true
+expand_icon = true
+
+[node name="StartPoint" parent="." instance=ExtResource("14_k2mw1")]
+position = Vector2(59, 224)
+
+[node name="EndPoint" parent="." instance=ExtResource("15_3628d")]
+position = Vector2(623, 224)
+
+[node name="Apple" parent="." instance=ExtResource("14_i7ma5")]
+position = Vector2(326, 197)
+
+[node name="Arrow" parent="." instance=ExtResource("18_31phq")]
+position = Vector2(326, 222)
+rotation = 1.5708
+
+[connection signal="pressed" from="PauseCanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dk52o03hth0tg"]
+
+[ext_resource type="Shader" uid="uid://wqtjpvgabkbc" path="res://Shaders/scroll.gdshader" id="1_2vdkn"]
+[ext_resource type="Texture2D" uid="uid://cutuoqs1668po" path="res://Assets/Backgrounds/Brown.png" id="1_ree0c"]
+[ext_resource type="Script" uid="uid://6x16o3v3xs6k" path="res://Scripts/thank_you_scene.gd" id="1_sdwwm"]
+[ext_resource type="FontFile" uid="uid://b17841n0v0l54" path="res://Assets/Text/Pixel Font.ttf" id="2_632yq"]
+[ext_resource type="Texture2D" uid="uid://dk4phovqr2v7a" path="res://Assets/Buttons/Back.png" id="4_lmtbt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lmtbt"]
+shader = ExtResource("1_2vdkn")
+shader_parameter/speed = 0.25
+shader_parameter/x_movement = false
+shader_parameter/y_movement = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sdwwm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1bwg3"]
+
+[node name="Thank You Scene" type="Node2D"]
+script = ExtResource("1_sdwwm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_lmtbt")
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_ree0c")
+stretch_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_fonts/normal_font = ExtResource("2_632yq")
+theme_override_font_sizes/normal_font_size = 20
+text = "THANK YOU FOR PLAYING!
+
+- DEOSHREYAS"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 62.0
+offset_bottom = 61.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sdwwm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1bwg3")
+icon = ExtResource("4_lmtbt")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

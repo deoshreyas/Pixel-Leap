@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg4mn6hj2g4ko"]
+
+[ext_resource type="Texture2D" uid="uid://djuk650iy3van" path="res://Assets/Terrain/Terrain (16x16).png" id="1_x1hij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx72e"]
+atlas = ExtResource("1_x1hij")
+region = Rect2(271.846, 15.8194, 48.3065, 5.26822)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3204"]
+size = Vector2(48, 5)
+
+[node name="OneWayPlatform" type="AnimatableBody2D"]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_dx72e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n3204")
+one_way_collision = true

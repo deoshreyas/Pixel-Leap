@@ -1,0 +1,237 @@
+[gd_scene load_steps=22 format=3 uid="uid://bro5j8nw16jks"]
+
+[ext_resource type="Texture2D" uid="uid://cim41lns2dham" path="res://Assets/Fruits/Apple.png" id="1_cwr3l"]
+[ext_resource type="Script" uid="uid://cp0kvsxhndwak" path="res://Scripts/collectibles_ui_layer.gd" id="1_svweu"]
+[ext_resource type="FontFile" uid="uid://b17841n0v0l54" path="res://Assets/Text/Pixel Font.ttf" id="2_svweu"]
+[ext_resource type="Texture2D" uid="uid://bdt0x2tmt1fap" path="res://Assets/Fruits/Cherries.png" id="4_7xu4q"]
+[ext_resource type="Texture2D" uid="uid://w7e2legyomhe" path="res://Assets/Fruits/Bananas.png" id="5_5u0y6"]
+[ext_resource type="Texture2D" uid="uid://eiawpahd6txl" path="res://Assets/Fruits/Kiwi.png" id="6_0p7ps"]
+[ext_resource type="Texture2D" uid="uid://hj5mj7s0v26j" path="res://Assets/Fruits/Melon.png" id="7_sjsxw"]
+[ext_resource type="Texture2D" uid="uid://56tlgwl63yxu" path="res://Assets/Fruits/Orange.png" id="8_sjsxw"]
+[ext_resource type="Texture2D" uid="uid://bk1ulft4wyes2" path="res://Assets/Fruits/Pineapple.png" id="9_a4hgn"]
+[ext_resource type="Texture2D" uid="uid://di0t2fqjndi0t" path="res://Assets/Fruits/Strawberry.png" id="10_l5m6a"]
+[ext_resource type="Texture2D" uid="uid://baya6rx2xxt8j" path="res://Assets/Skull Star/skull.png" id="11_l5m6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xu4q"]
+atlas = ExtResource("1_cwr3l")
+region = Rect2(9.91613, 7.05259, 12.1618, 14.5229)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u0y6"]
+atlas = ExtResource("4_7xu4q")
+region = Rect2(8.75878, 8.62811, 14.9872, 15.1101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag0qs"]
+atlas = ExtResource("5_5u0y6")
+region = Rect2(8.47488, 7.68182, 15.7093, 15.7093)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfh0f"]
+atlas = ExtResource("6_0p7ps")
+region = Rect2(7.67369, 8.82822, 15.7093, 14.4358)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4hgn"]
+atlas = ExtResource("7_sjsxw")
+region = Rect2(6.53391, 9.8276, 19.2924, 12.8599)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5m6a"]
+atlas = ExtResource("8_sjsxw")
+region = Rect2(8.16548, 8.59775, 18.1526, 14.8913)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx6oe"]
+atlas = ExtResource("9_a4hgn")
+region = Rect2(9.72723, 8.30186, 13.0217, 17.4442)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as806"]
+atlas = ExtResource("10_l5m6a")
+region = Rect2(10.6195, 8.67936, 11.2898, 14.7283)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_768lt"]
+atlas = ExtResource("11_l5m6a")
+region = Rect2(6.43418, 5.3019, 19.0466, 21.312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc0bs"]
+atlas = SubResource("AtlasTexture_768lt")
+region = Rect2(-0.00325012, 0.047338, 20.8636, 22.1163)
+
+[node name="CollectiblesUILayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_svweu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -31.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Apples" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Apples"]
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_7xu4q")
+
+[node name="AppleCount" type="RichTextLabel" parent="HBoxContainer/Apples"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_svweu")
+theme_override_font_sizes/normal_font_size = 12
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Cherries" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Cherries"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_5u0y6")
+
+[node name="CherryCount" type="RichTextLabel" parent="HBoxContainer/Cherries"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_svweu")
+theme_override_font_sizes/normal_font_size = 12
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Bananas" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Bananas"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ag0qs")
+
+[node name="BananaCount" type="RichTextLabel" parent="HBoxContainer/Bananas"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_svweu")
+theme_override_font_sizes/normal_font_size = 12
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Kiwi" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Kiwi"]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nfh0f")
+
+[node name="KiwiCount" type="RichTextLabel" parent="HBoxContainer/Kiwi"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_svweu")
+theme_override_font_sizes/normal_font_size = 12
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Melon" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Melon"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_a4hgn")
+
+[node name="MelonCount" type="RichTextLabel" parent="HBoxContainer/Melon"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_svweu")
+theme_override_font_sizes/normal_font_size = 12
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Orange" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Orange"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_l5m6a")
+
+[node name="OrangeCount" type="RichTextLabel" parent="HBoxContainer/Orange"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_svweu")
+theme_override_font_sizes/normal_font_size = 12
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Pineapple" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Pineapple"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_xx6oe")
+
+[node name="PineappleCount" type="RichTextLabel" parent="HBoxContainer/Pineapple"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_svweu")
+theme_override_font_sizes/normal_font_size = 12
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Strawberry" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Strawberry"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_as806")
+
+[node name="StrawberryCount" type="RichTextLabel" parent="HBoxContainer/Strawberry"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_svweu")
+theme_override_font_sizes/normal_font_size = 12
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Enemy" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Enemy"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nc0bs")
+
+[node name="EnemyCount" type="RichTextLabel" parent="HBoxContainer/Enemy"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_svweu")
+theme_override_font_sizes/normal_font_size = 12
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

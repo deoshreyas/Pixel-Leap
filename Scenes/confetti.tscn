@@ -1,0 +1,143 @@
+[gd_scene load_steps=10 format=3 uid="uid://1g50li1gib46"]
+
+[ext_resource type="Texture2D" uid="uid://cctrjs5wja6yq" path="res://Assets/Confetti/Confetti (16x16).png" id="1_jakf0"]
+[ext_resource type="Script" uid="uid://ctx4yxuahumk5" path="res://Scripts/confetti.gd" id="1_whhjc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whhjc"]
+atlas = ExtResource("1_jakf0")
+region = Rect2(64.3435, 0, 15.2922, 16)
+
+[sub_resource type="Curve" id="Curve_jgsew"]
+_data = [Vector2(0.00534759, 0.235955), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtsj6"]
+atlas = ExtResource("1_jakf0")
+region = Rect2(0, 0, 15.8138, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fxnn"]
+atlas = ExtResource("1_jakf0")
+region = Rect2(16.1823, 0, 15.4786, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfh0n"]
+atlas = ExtResource("1_jakf0")
+region = Rect2(32.2751, 0, 15.3557, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ma7p"]
+atlas = ExtResource("1_jakf0")
+region = Rect2(48.2451, 0, 15.4786, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gl0i3"]
+atlas = ExtResource("1_jakf0")
+region = Rect2(80.1851, 0, 15.8149, 16)
+
+[node name="Confetti" type="Node2D"]
+script = ExtResource("1_whhjc")
+
+[node name="Pink" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = SubResource("AtlasTexture_whhjc")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.5
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 147.0
+initial_velocity_max = 178.0
+scale_amount_min = 0.25
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_jgsew")
+
+[node name="Blue" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = SubResource("AtlasTexture_jtsj6")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.5
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 147.0
+initial_velocity_max = 178.0
+scale_amount_min = 0.25
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_jgsew")
+
+[node name="Green" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = SubResource("AtlasTexture_3fxnn")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.5
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 147.0
+initial_velocity_max = 178.0
+scale_amount_min = 0.25
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_jgsew")
+
+[node name="Yellow" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = SubResource("AtlasTexture_cfh0n")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.5
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 147.0
+initial_velocity_max = 178.0
+scale_amount_min = 0.25
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_jgsew")
+
+[node name="Red" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = SubResource("AtlasTexture_5ma7p")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.5
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 147.0
+initial_velocity_max = 178.0
+scale_amount_min = 0.25
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_jgsew")
+
+[node name="Orange" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = SubResource("AtlasTexture_gl0i3")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.5
+randomness = 0.2
+local_coords = true
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 147.0
+initial_velocity_max = 178.0
+scale_amount_min = 0.25
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_jgsew")

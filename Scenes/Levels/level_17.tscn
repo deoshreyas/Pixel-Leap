@@ -1,0 +1,511 @@
+[gd_scene load_steps=34 format=4 uid="uid://bcbftkxge833m"]
+
+[ext_resource type="Script" uid="uid://clfoq3xaj770r" path="res://Scripts/Main.gd" id="1_pymeh"]
+[ext_resource type="PackedScene" uid="uid://b48ggfoy6tuwv" path="res://Scenes/Levels/level_18.tscn" id="2_ffo63"]
+[ext_resource type="Shader" uid="uid://wqtjpvgabkbc" path="res://Shaders/scroll.gdshader" id="2_g1jyw"]
+[ext_resource type="Texture2D" uid="uid://b7pr70ct6uan8" path="res://Assets/Backgrounds/Gray.png" id="3_pymeh"]
+[ext_resource type="PackedScene" uid="uid://dup2wfmpogrby" path="res://Scenes/player.tscn" id="4_lg048"]
+[ext_resource type="Script" uid="uid://kk8fektwx1fd" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_1bges"]
+[ext_resource type="Script" uid="uid://c4qq5wa4ceeg3" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_ipajc"]
+[ext_resource type="Script" uid="uid://cvffra6awtbl1" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_3jnqw"]
+[ext_resource type="PackedScene" uid="uid://dwq33n3fssemf" path="res://Scenes/tile_map.tscn" id="8_11w4k"]
+[ext_resource type="FontFile" uid="uid://b17841n0v0l54" path="res://Assets/Text/Pixel Font.ttf" id="9_ajudw"]
+[ext_resource type="PackedScene" uid="uid://bro5j8nw16jks" path="res://Scenes/collectibles_ui_layer.tscn" id="10_vmaai"]
+[ext_resource type="PackedScene" uid="uid://p58hs5ikh1wf" path="res://Scenes/level_finished.tscn" id="11_rvnd3"]
+[ext_resource type="PackedScene" uid="uid://duddahvmkr1vs" path="res://Scenes/pause_menu.tscn" id="12_dxye2"]
+[ext_resource type="Texture2D" uid="uid://bg1q26ywwqfw3" path="res://Assets/Buttons/Pause.png" id="13_gpckb"]
+[ext_resource type="PackedScene" uid="uid://ci3b3rcgy1jkr" path="res://Scenes/rock_1.tscn" id="14_g1jyw"]
+[ext_resource type="PackedScene" uid="uid://csvx0fvwfhjkl" path="res://Scenes/turtle_enemy.tscn" id="15_vmaai"]
+[ext_resource type="PackedScene" uid="uid://c7m3gc4po4euf" path="res://Scenes/mushroom_enemy.tscn" id="16_rvnd3"]
+[ext_resource type="PackedScene" uid="uid://gx771q5i5883" path="res://Scenes/spike_enemy.tscn" id="17_dxye2"]
+[ext_resource type="PackedScene" uid="uid://blubdqidawjfq" path="res://Scenes/radish_enemy.tscn" id="18_gpckb"]
+[ext_resource type="PackedScene" uid="uid://7xnimfdc5jf1" path="res://Scenes/falling_platform.tscn" id="19_u3eus"]
+[ext_resource type="PackedScene" uid="uid://dcmqsbh8fyyne" path="res://Scenes/checkpoint.tscn" id="20_ffo63"]
+[ext_resource type="PackedScene" uid="uid://46r5lb86ioa7" path="res://Scenes/end_point.tscn" id="21_peg5q"]
+[ext_resource type="PackedScene" uid="uid://b3yiwru8p6acj" path="res://Scenes/falling_spikes.tscn" id="22_8sdpa"]
+[ext_resource type="PackedScene" uid="uid://mhm5jp7go6er" path="res://Scenes/fat_bird_enemy.tscn" id="23_rvnd3"]
+[ext_resource type="PackedScene" uid="uid://qp1vf5j2jgx" path="res://Scenes/banana.tscn" id="24_dxye2"]
+[ext_resource type="PackedScene" uid="uid://cnhr77jd6scet" path="res://Scenes/arrow.tscn" id="25_u3eus"]
+[ext_resource type="PackedScene" uid="uid://daidmop00pd1" path="res://Scenes/start_point.tscn" id="26_ffo63"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1jyw"]
+shader = ExtResource("2_g1jyw")
+shader_parameter/speed = 0.25
+shader_parameter/x_movement = true
+shader_parameter/y_movement = false
+
+[sub_resource type="Resource" id="Resource_k7acu"]
+script = ExtResource("7_3jnqw")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5v1tr"]
+size = Vector2(1075, 1280)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgpy0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2t4p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0pcbe"]
+
+[node name="Level 17" type="Node2D"]
+script = ExtResource("1_pymeh")
+total_collectibles = 68
+LevelName = "17"
+next_level = ExtResource("2_ffo63")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_g1jyw")
+offset_left = -81.0
+offset_top = -877.0
+offset_right = 1048.0
+offset_bottom = 436.0
+texture = ExtResource("3_pymeh")
+stretch_mode = 1
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(480, -780.279)
+zoom = Vector2(2.15, 2.15)
+limit_left = -62
+limit_top = -864
+limit_right = 1013
+limit_bottom = 416
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_1bges")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(480, -780.279)
+script = ExtResource("6_ipajc")
+follow_mode = 5
+follow_target = NodePath("../Player")
+zoom = Vector2(2.15, 2.15)
+tween_resource = SubResource("Resource_k7acu")
+follow_damping = true
+follow_damping_value = Vector2(0.15, 0.15)
+dead_zone_width = 0.143
+dead_zone_height = 0.173
+draw_limits = true
+limit_target = NodePath("../CameraBounds/CollisionShape2D")
+
+[node name="CameraBounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBounds"]
+position = Vector2(475.5, -224)
+shape = SubResource("RectangleShape2D_5v1tr")
+disabled = true
+
+[node name="TileMap" parent="." instance=ExtResource("8_11w4k")]
+tile_map_data = PackedByteArray("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AAA1ABgAAAASAAgAAAA0ABgAAAASAAgAAAAzABgAAAASAAgAAAAyABgAAAASAAgAAAAxABgAAAASAAgAAAAwABgAAAASAAgAAAAvABgAAAASAAgAAAAuABgAAAASAAgAAAAtABgAAAASAAgAAAAsABgAAAASAAgAAAArABgAAAASAAgAAAAqABgAAAASAAgAAAApABgAAAASAAgAAAAoABgAAAASAAgAAAAnABgAAAASAAgAAAAmABgAAAASAAgAAAAlABgAAAASAAgAAAAkABgAAAASAAgAAAAjABgAAAASAAgAAAAiABgAAAASAAgAAAAhABgAAAASAAgAAAAgABgAAAASAAgAAAAfABgAAAASAAgAAAAeABgAAAASAAgAAAAdABgAAAASAAgAAAAcABgAAAASAAgAAAAbABgAAAASAAgAAAAaABgAAAASAAgAAAAZABgAAAASAAgAAAAYABgAAAASAAgAAAAXABgAAAASAAgAAAAWABgAAAASAAgAAAAVABgAAAASAAgAAAAUABgAAAASAAgAAAATABgAAAASAAgAAAASABgAAAASAAgAAAARABgAAAASAAgAAAAQABgAAAASAAgAAAAPABgAAAASAAgAAAAOABgAAAASAAgAAAANABgAAAASAAgAAAAMABgAAAASAAgAAAALABgAAAASAAgAAAAKABgAAAASAAgAAAAJABgAAAASAAgAAAAIABgAAAASAAgAAAAHABgAAAASAAgAAAAGABgAAAASAAgAAAAFABgAAAASAAgAAAAEABgAAAASAAgAAAADABgAAAASAAgAAAACABgAAAASAAgAAAABABgAAAASAAgAAAAAABgAAAASAAgAAAD//xgAAAASAAgAAAD+/xgAAAARAAgAAAD9/xgAAAARAAkAAAD9/xcAAAAUAAoAAAD9/xYAAAAUAAkAAAD9/xUAAAAUAAkAAAD9/xQAAAAUAAkAAAD9/xMAAAAUAAkAAAD9/xIAAAAUAAkAAAD9/xEAAAAUAAkAAAD9/xAAAAAUAAkAAAD9/w8AAAAUAAkAAAD9/w4AAAAUAAkAAAD9/w0AAAAUAAkAAAD9/wwAAAAUAAkAAAD9/wsAAAAUAAkAAAD9/woAAAAUAAkAAAD9/wkAAAAUAAkAAAD9/wgAAAAUAAkAAAD9/wcAAAAUAAkAAAD9/wYAAAAUAAkAAAD9/wUAAAAUAAkAAAD9/wQAAAAUAAkAAAD9/wMAAAAUAAkAAAD9/wIAAAAUAAkAAAD9/wEAAAAUAAkAAAD9/wAAAAAUAAkAAAD9////AAAUAAkAAAD9//7/AAAUAAkAAAD9//3/AAAUAAkAAAD9//z/AAAUAAkAAAD9//v/AAAUAAkAAAD9//r/AAAUAAkAAAD9//n/AAAUAAkAAAD9//j/AAAUAAkAAAD9//f/AAAUAAkAAAD9//b/AAAUAAkAAAD9//X/AAAUAAkAAAD9//T/AAAUAAkAAAD9//P/AAAUAAkAAAD9//L/AAAUAAkAAAD9/83/AAAUAAkAAAD9/87/AAAUAAkAAAD9/8//AAAUAAkAAAD9/9D/AAAUAAkAAAD9/9H/AAAUAAkAAAD9/9L/AAAUAAkAAAD9/9P/AAAUAAkAAAD9/9T/AAAUAAkAAAD9/9X/AAAUAAkAAAD9/9b/AAAUAAkAAAD9/9f/AAAUAAkAAAD9/9j/AAAUAAkAAAD9/9n/AAAUAAkAAAD9/9r/AAAUAAkAAAD9/9v/AAAUAAkAAAD9/9z/AAAUAAkAAAD9/93/AAAUAAkAAAD9/97/AAAUAAkAAAD9/9//AAAUAAkAAAD9/+D/AAAUAAkAAAD9/+H/AAAUAAkAAAD9/+L/AAAUAAkAAAD9/+P/AAAUAAkAAAD9/+T/AAAUAAkAAAD9/+X/AAAUAAkAAAD9/+b/AAAUAAkAAAD9/+f/AAAUAAkAAAD9/+j/AAAUAAkAAAD9/+n/AAAUAAkAAAD9/+r/AAAUAAkAAAD9/+v/AAAUAAkAAAD9/+z/AAAUAAkAAAD9/+3/AAAUAAkAAAD9/+7/AAAUAAkAAAD9/+//AAAUAAkAAAD9//D/AAAUAAkAAAD9//H/AAAUAAkAAAAgANH/AAAIAAIAAAAgAND/AAAIAAAAAAAfANH/AAAHAAIAAAAfAND/AAAHAAAAAAAeANH/AAAHAAIAAAAeAND/AAAHAAAAAAAdANH/AAAHAAIAAAAdAND/AAAHAAAAAAAcANH/AAAHAAIAAAAcAND/AAAHAAAAAAAbANH/AAAHAAIAAAAbAND/AAAHAAAAAAAaANH/AAAGAAIAAAAaAND/AAAGAAAAAAAlANP/AAAIAAIAAAAlANL/AAAIAAAAAAAkANP/AAAGAAIAAAAkANL/AAAGAAAAAAApANb/AAAIAAIAAAApANX/AAAIAAAAAAAoANb/AAAGAAIAAAAoANX/AAAGAAAAAAA5ANb/AAAIAAIAAAA5ANX/AAAIAAAAAAA4ANb/AAAHAAIAAAA4ANX/AAAHAAAAAAA3ANb/AAAHAAIAAAA3ANX/AAAHAAAAAAA2ANb/AAAHAAIAAAA2ANX/AAAHAAAAAAA1ANb/AAAHAAIAAAA1ANX/AAAHAAAAAAA0ANb/AAAHAAIAAAA0ANX/AAAHAAAAAAAzANb/AAAHAAIAAAAzANX/AAAHAAAAAAAyANb/AAAHAAIAAAAyANX/AAAHAAAAAAAxANb/AAAHAAIAAAAxANX/AAAHAAAAAAAwANb/AAAHAAIAAAAwANX/AAAHAAAAAAAvANb/AAAHAAIAAAAvANX/AAAHAAAAAAAuANb/AAAHAAIAAAAuANX/AAAHAAAAAAAtANb/AAAHAAIAAAAtANX/AAAHAAAAAAAsANb/AAAGAAIAAAAsANX/AAAGAAAAAAA8AN3/AAAIAAIAAAA8ANz/AAAIAAAAAAA7AN3/AAAHAAIAAAA7ANz/AAAHAAAAAAA6AN3/AAAHAAIAAAA6ANz/AAAHAAAAAAA5AN3/AAAHAAIAAAA5ANz/AAAHAAAAAAA4AN3/AAAHAAIAAAA4ANz/AAAHAAAAAAA3AN3/AAAGAAIAAAA3ANz/AAAGAAAAAAAzAN3/AAAIAAIAAAAzANz/AAAIAAEAAAAyAN3/AAAHAAIAAAAyANz/AAAKAAEAAAAxAN3/AAAHAAIAAAAxANz/AAAHAAAAAAAwAN3/AAAHAAIAAAAwANz/AAAHAAAAAAAvAN3/AAAHAAIAAAAvANz/AAAHAAAAAAAuAN3/AAAHAAIAAAAuANz/AAAHAAAAAAAtAN3/AAAHAAIAAAAtANz/AAAHAAAAAAAsAN3/AAAHAAIAAAAsANz/AAAHAAAAAAArAN3/AAAHAAIAAAArANz/AAAHAAAAAAAqAN3/AAAHAAIAAAAqANz/AAAHAAAAAAApAN3/AAAHAAIAAAApANz/AAAHAAAAAAAoAN3/AAAHAAIAAAAoANz/AAAHAAAAAAAnAN3/AAAHAAIAAAAnANz/AAAHAAAAAAAmAN3/AAAHAAIAAAAmANz/AAAHAAAAAAAlAN3/AAAHAAIAAAAlANz/AAAHAAAAAAAkAN3/AAAHAAIA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AAAsAOr/AAAHAAAAAAArAOv/AAAHAAIAAAArAOr/AAAHAAAAAAAqAOv/AAAHAAIAAAAqAOr/AAAHAAAAAAApAOv/AAAHAAIAAAApAOr/AAAHAAAAAAAoAOv/AAAHAAIAAAAoAOr/AAAHAAAAAAAnAOv/AAAHAAIAAAAnAOr/AAAHAAAAAAAmAOv/AAAHAAIAAAAmAOr/AAAHAAAAAAAlAOv/AAAHAAIAAAAlAOr/AAAHAAAAAAAkAOv/AAAHAAIAAAAkAOr/AAAHAAAAAAAjAOv/AAAHAAIAAAAjAOr/AAAHAAAAAAAiAOv/AAAHAAIAAAAiAOr/AAAHAAAAAAAhAOv/AAAHAAIAAAAhAOr/AAAHAAAAAAAgAOv/AAAHAAIAAAAgAOr/AAAHAAAAAAAfAOv/AAAHAAIAAAAfAOr/AAAHAAAAAAAeAOv/AAAGAAIAAAAeAOr/AAAGAAAAAAAyAPr/AAAIAAIAAAAyAPn/AAAIAAEAAAAyAPj/AAAIAAEAAAAyAPf/AAAIAAEAAAAyAPb/AAAIAAEAAAAyAPX/AAAIAAEAAAAyAPT/AAAIAAEAAAAyAPP/AAAIAAEAAAAyAPL/AAAIAAEAAAAyAPH/AAAIAAEAAAAyAPD/AAAIAAEAAAAyAO//AAAIAAEAAAAyAO7/AAAIAAEAAAAyAO3/AAAIAAEAAAAyAOz/AAAIAAEAAAAyAOv/AAAIAAEAAAAyAOr/AAAIAAAAAAAxAPr/AAAGAAIAAAAxAPn/AAAGAAEAAAAxAPj/AAAGAAEAAAAxAPf/AAAGAAEAAAAxAPb/AAAGAAEAAAAxAPX/AAAGAAEAAAAxAPT/AAAGAAEAAAAxAPP/AAAGAAEAAAAxAPL/AAAGAAEAAAAxAPH/AAAGAAEAAAAxAPD/AAAGAAEAAAAxAO//AAAGAAEAAAAxAO7/AAAGAAEAAAAxAO3/AAAGAAEAAAAxAOz/AAAGAAEAAAAxAOv/AAAGAAEAAAAxAOr/AAAGAAAAAAA8APr/AAAIAAIAAAA8APn/AAAIAAEAAAA8APj/AAAIAAEAAAA8APf/AAAIAAEAAAA8APb/AAAIAAEAAAA8APX/AAAIAAEAAAA8APT/AAAIAAEAAAA8APP/AAAIAAEAAAA8APL/AAAIAAEAAAA8APH/AAAIAAEAAAA8APD/AAAIAAEAAAA8AO//AAAIAAEAAAA8AO7/AAAIAAEAAAA8AO3/AAAIAAEAAAA8AOz/AAAIAAEAAAA8AOv/AAAIAAEAAAA8AOr/AAAIAAAAAAA7APr/AAAGAAIAAAA7APn/AAAGAAEAAAA7APj/AAAGAAEAAAA7APf/AAAGAAEAAAA7APb/AAAGAAEAAAA7APX/AAAGAAEAAAA7APT/AAAGAAEAAAA7APP/AAAGAAEAAAA7APL/AAAGAAEAAAA7APH/AAAGAAEAAAA7APD/AAAGAAEAAAA7AO//AAAGAAEAAAA7AO7/AAAGAAEAAAA7AO3/AAAGAAEAAAA7AOz/AAAGAAEAAAA7AOv/AAAGAAEAAAA7AOr/AAAGAAAAAAA8AP//AAAIAAIAAAA8AP7/AAAIAAEAAAA8AP3/AAAIAAAAAAA7AP//AAAHAAIAAAA7AP7/AAAHAAEAAAA7AP3/AAAHAAAAAAA6AP//AAAHAAIAAAA6AP7/AAAHAAEAAAA6AP3/AAAHAAAAAAA5AP//AAAHAAIAAAA5AP7/AAAHAAEAAAA5AP3/AAAHAAAAAAA4AP//AAAHAAIAAAA4AP7/AAAHAAEAAAA4AP3/AAAHAAAAAAA3AP//AAAHAAIAAAA3AP7/AAAHAAEAAAA3AP3/AAAHAAAAAAA2AP//AAAHAAIAAAA2AP7/AAAHAAEAAAA2AP3/AAAHAAAAAAA1AP//AAAHAAIAAAA1AP7/AAAHAAEAAAA1AP3/AAAHAAAAAAA0AP//AAAHAAIAAAA0AP7/AAAHAAEAAAA0AP3/AAAHAAAAAAAzAP//AAAHAAIAAAAzAP7/AAAHAAEAAAAzAP3/AAAHAAAAAAAyAP//AAAHAAIAAAAyAP7/AAAHAAEAAAAyAP3/AAAHAAAAAAAxAP//AAAHAAIAAAAxAP7/AAAHAAEAAAAxAP3/AAAHAAAAAAAwAP//AAAHAAIAAAAwAP7/AAAHAAEAAAAwAP3/AAAHAAAAAAAvAP//AAAHAAIAAAAvAP7/AAAHAAEAAAAvAP3/AAAHAAAAAAAuAP//AAAHAAIAAAAuAP7/AAAHAAEAAAAuAP3/AAAHAAAAAAAtAP//AAAHAAIAAAAtAP7/AAAHAAEAAAAtAP3/AAAHAAAAAAAsAP//AAAHAAIAAAAsAP7/AAAHAAEAAAAsAP3/AAAHAAAAAAArAP//AAAHAAIAAAArAP7/AAAHAAEAAAArAP3/AAAHAAAAAAAqAP//AAAHAAIAAAAqAP7/AAAHAAEAAAAqAP3/AAAHAAAAAAApAP//AAAHAAIAAAApAP7/AAAHAAEAAAApAP3/AAAHAAAAAAAoAP//AAAHAAIAAAAoAP7/AAAHAAEAAAAoAP3/AAAHAAAAAAAnAP//AAAHAAIAAAAnAP7/AAAHAAEAAAAnAP3/AAAHAAAAAAAmAP//AAAHAAIAAAAmAP7/AAAHAAEAAAAmAP3/AAAHAAAAAAAlAP//AAAHAAIAAAAlAP7/AAAHAAEAAAAlAP3/AAAHAAAAAAAkAP//AAAHAAIAAAAkAP7/AAAHAAEAAAAkAP3/AAAHAAAAAAAjAP//AAAHAAIAAAAjAP7/AAAHAAEAAAAjAP3/AAAHAAAAAAAiAP//AAAHAAIAAAAiAP7/AAAHAAEAAAAiAP3/AAAHAAAAAAAhAP//AAAHAAIAAAAhAP7/AAAHAAEAAAAhAP3/AAAHAAAAAAAgAP//AAAHAAIAAAAgAP7/AAAHAAEAAAAgAP3/AAAHAAAAAAAfAP//AAAHAAIAAAAfAP7/AAAHAAEAAAAfAP3/AAAHAAAAAAAeAP//AAAHAAIAAAAeAP7/AAAHAAEAAAAeAP3/AAAHAAAAAAAdAP//AAAHAAIAAAAdAP7/AAAHAAEAAAAdAP3/AAAHAAAAAAAcAP//AAAHAAIAAAAcAP7/AAAHAAEAAAAcAP3/AAAHAAAAAAAbAP//AAAHAAIAAAAbAP7/AAAHAAEAAAAbAP3/AAAHAAAAAAAaAP//AAAGAAIAAAAaAP7/AAAGAAEAAAAaAP3/AAAGAAAAAAAVAP7/AAAIAAIAAAAVAP3/AAAIAAAAAAAUAP7/AAAHAAIAAAAUAP3/AAAHAAAAAAATAP7/AAAHAAIAAAATAP3/AAAHAAAAAAASAP7/AAAHAAIAAAASAP3/AAAHAAAAAAARAP7/AAAHAAIAAAARAP3/AAAHAAAAAAAQAP7/AAAHAAIAAAAQAP3/AAAHAAAAAAAPAP7/AAAHAAIAAAAPAP3/AAAHAAAAAAAOAP7/AAAHAAIAAAAOAP3/AAAHAAAAAAANAP7/AAAHAAIAAAANAP3/AAAHAAAAAAAMAP7/AAAHAAIAAAAMAP3/AAAHAAAAAAALAP7/AAAHAAIAAAALAP3/AAAHAAAAAAAKAP7/AAAHAAIAAAAKAP3/AAAHAAAAAAAJAP7/AAAHAAIAAAAJAP3/AAAHAAAAAAAIAP7/AAAHAAIAAAAIAP3/AAAHAAAAAAAHAP7/AAAHAAIAAAAHAP3/AAAHAAAAAAAGAP7/AAAHAAIAAAAGAP3/AAAHAAAAAAAFAP7/AAAHAAIAAAAFAP3/AAAHAAAAAAAEAP7/AAAHAAIAAAAEAP3/AAAHAAAAAAADAP7/AAAHAAIAAAADAP3/AAAHAAAAAAACAP7/AAAHAAIAAAACAP3/AAAHAAAAAAABAP7/AAAGAAIAAAABAP3/AAAGAAAAAAD//wgAAAAIAAIAAAD//wcAAAAIAAAAAAD+/wgAAAAGAAIAAAD+/wcAAAAGAAAAAAA7ABYAAAAIAAIAAAA7ABUAAAAIAAAAAAA6ABYAAAAHAAIAAAA6ABUAAAAHAAAAAAA5ABYAAAAHAAIAAAA5ABUAAAAHAAAAAAA4ABYAAAAHAAIAAAA4ABUAAAAHAAAAAAA3ABYAAAAHAAIAAAA3ABUAAAAHAAAAAAA2ABYAAAAGAAIAAAA2ABUAAAAGAAAAAAAbAA8AAAAIAAIAAAAbAA4AAAAIAAAAAAAaAA8AAAAHAAIAAAAaAA4AAAAHAAAAAAAZAA8AAAAGAAIAAAAZAA4AAAAGAAAAAAAuAOX/AAAIAAIAAAAuAOT/AAAIAAAAAAAtAOX/AAAHAAIAAAAtAOT/AAAHAAAAAAAsAOX/AAAHAAIAAAAsAOT/AAAHAAAAAAArAOX/AAAHAAIAAAArAOT/AAAHAAAAAAAqAOX/AAAHAAIAAAAqAOT/AAAHAAAAAAApAOX/AAAHAAIAAAApAOT/AAAHAAAAAAAoAOX/AAAHAAIAAAAoAOT/AAAHAAAAAAAnAOX/AAAHAAIAAAAnAOT/AAAHAAAAAAAmAOX/AAAHAAIAAAAmAOT/AAAHAAAAAAAlAOX/AAAHAAIAAAAlAOT/AAAHAAAAAAAkAOX/AAAHAAIAAAAkAOT/AAAHAAAAAAAjAOX/AAAHAAIAAAAjAOT/AAAHAAAAAAAiAOX/AAAHAAIAAAAiAOT/AAAHAAAAAAAhAOX/AAAHAAIAAAAhAOT/AAAHAAAAAAAgAOX/AAAHAAIAAAAgAOT/AAAHAAAAAAAfAOX/AAAGAAIAAAAfAOT/AAAGAAAAAAAZAOr/AAAGAAAAAAAZAOv/AAAGAAIAAAA=")
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer"]
+offset_right = 640.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="TimerText" type="Label" parent="UILayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_ajudw")
+theme_override_font_sizes/font_size = 20
+text = "0.0"
+horizontal_alignment = 1
+
+[node name="CollectiblesUILayer" parent="UILayer" instance=ExtResource("10_vmaai")]
+unique_name_in_owner = true
+AppleCount = false
+CherryCount = false
+KiwiCount = false
+MelonCount = false
+OrangeCount = false
+PineappleCount = false
+StrawberryCount = false
+
+[node name="PauseCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelFinished" parent="PauseCanvasLayer" instance=ExtResource("11_rvnd3")]
+
+[node name="PauseMenu" parent="PauseCanvasLayer" instance=ExtResource("12_dxye2")]
+
+[node name="PauseButton" type="Button" parent="PauseCanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -39.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 39.0
+grow_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hgpy0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t2t4p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0pcbe")
+icon = ExtResource("13_gpckb")
+flat = true
+expand_icon = true
+
+[node name="Player" parent="." instance=ExtResource("4_lg048")]
+position = Vector2(480, -801)
+
+[node name="Rock 1" parent="." instance=ExtResource("14_g1jyw")]
+position = Vector2(722, -700)
+
+[node name="TurtleEnemy" parent="." instance=ExtResource("15_vmaai")]
+position = Vector2(601, -586)
+
+[node name="Mushroom Enemy" parent="." instance=ExtResource("16_rvnd3")]
+position = Vector2(440, -576)
+
+[node name="Mushroom Enemy2" parent="." instance=ExtResource("16_rvnd3")]
+position = Vector2(125, -576)
+
+[node name="SpikeEnemy" parent="." instance=ExtResource("17_dxye2")]
+position = Vector2(831, -271)
+type = "LEFT-RIGHT"
+
+[node name="SpikeEnemy2" parent="." instance=ExtResource("17_dxye2")]
+position = Vector2(930, -209)
+type = "LEFT-RIGHT"
+
+[node name="SpikeEnemy3" parent="." instance=ExtResource("17_dxye2")]
+position = Vector2(831, -132)
+type = "LEFT-RIGHT"
+
+[node name="Radish Enemy" parent="." instance=ExtResource("18_gpckb")]
+position = Vector2(31, -62)
+
+[node name="FallingPlatform" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(49, 133)
+
+[node name="FallingPlatform2" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(120, 153)
+
+[node name="FallingPlatform3" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(193, 182)
+
+[node name="FallingPlatform4" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(272, 207)
+
+[node name="FallingPlatform5" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(351, 228)
+
+[node name="FallingPlatform7" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(493, 239)
+
+[node name="FallingPlatform8" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(569, 264)
+
+[node name="FallingPlatform9" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(640, 292)
+
+[node name="FallingPlatform10" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(714, 315)
+
+[node name="FallingPlatform11" parent="." instance=ExtResource("19_u3eus")]
+position = Vector2(794, 344)
+
+[node name="Checkpoint" parent="." instance=ExtResource("20_ffo63")]
+position = Vector2(-17, 101)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("20_ffo63")]
+position = Vector2(424, 213)
+
+[node name="EndPoint" parent="." instance=ExtResource("21_peg5q")]
+position = Vector2(914, 320)
+
+[node name="FallingSpikes" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(534, -408)
+
+[node name="FallingSpikes2" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(548, -408)
+
+[node name="FallingSpikes3" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(562, -408)
+
+[node name="FallingSpikes4" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(576, -408)
+
+[node name="FallingSpikes5" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(590, -408)
+
+[node name="FallingSpikes6" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(604, -408)
+
+[node name="FallingSpikes7" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(618, -408)
+
+[node name="FallingSpikes8" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(632, -408)
+
+[node name="FallingSpikes9" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(646, -408)
+
+[node name="FallingSpikes10" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(660, -408)
+
+[node name="FallingSpikes11" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(674, -408)
+
+[node name="FallingSpikes12" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(688, -408)
+
+[node name="FallingSpikes13" parent="." instance=ExtResource("22_8sdpa")]
+position = Vector2(702, -408)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("20_ffo63")]
+position = Vector2(422, -363)
+
+[node name="Checkpoint4" parent="." instance=ExtResource("20_ffo63")]
+position = Vector2(528, -619)
+
+[node name="Fat Bird Enemy" parent="." instance=ExtResource("23_rvnd3")]
+position = Vector2(500, -61)
+rise_distance = 110.0
+flap_speed = 2.0
+rest_time = 1.0
+
+[node name="Fat Bird Enemy2" parent="." instance=ExtResource("23_rvnd3")]
+position = Vector2(578, -61)
+gravity = 4.0
+
+[node name="Fat Bird Enemy3" parent="." instance=ExtResource("23_rvnd3")]
+position = Vector2(650, -61)
+rise_distance = 125.0
+gravity = 6.0
+rest_time = 1.0
+
+[node name="Fat Bird Enemy4" parent="." instance=ExtResource("23_rvnd3")]
+position = Vector2(107, -365)
+rise_distance = 110.0
+flap_speed = 2.0
+rest_time = 1.0
+
+[node name="Fat Bird Enemy5" parent="." instance=ExtResource("23_rvnd3")]
+position = Vector2(185, -365)
+gravity = 4.0
+
+[node name="Fat Bird Enemy6" parent="." instance=ExtResource("23_rvnd3")]
+position = Vector2(257, -365)
+rise_distance = 125.0
+gravity = 6.0
+rest_time = 1.0
+
+[node name="Arrow" parent="." instance=ExtResource("25_u3eus")]
+position = Vector2(950, -678)
+rotation = 3.14159
+
+[node name="Arrow2" parent="." instance=ExtResource("25_u3eus")]
+position = Vector2(14, -550)
+rotation = 3.14159
+
+[node name="Arrow3" parent="." instance=ExtResource("25_u3eus")]
+position = Vector2(932, -336)
+rotation = 3.14159
+
+[node name="Arrow4" parent="." instance=ExtResource("25_u3eus")]
+position = Vector2(932, -336)
+rotation = 3.14159
+
+[node name="Arrow5" parent="." instance=ExtResource("25_u3eus")]
+position = Vector2(-14, -33)
+rotation = 3.14159
+
+[node name="Collectibles" type="Node" parent="."]
+
+[node name="Banana" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(592, -748)
+
+[node name="Banana2" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(851, -735)
+
+[node name="Banana4" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(834, -735)
+
+[node name="Banana5" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(817, -735)
+
+[node name="Banana6" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(800, -735)
+
+[node name="Banana7" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(950, -661)
+
+[node name="Banana8" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(950, -643)
+
+[node name="Banana9" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(950, -626)
+
+[node name="Banana10" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(950, -610)
+
+[node name="Banana11" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(816, -619)
+
+[node name="Banana12" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(676, -619)
+
+[node name="Banana13" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(257, -607)
+
+[node name="Banana14" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(276, -607)
+
+[node name="Banana15" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(293, -607)
+
+[node name="Banana16" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(310, -607)
+
+[node name="Banana17" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(-17, -587)
+
+[node name="Banana18" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(14, -533)
+
+[node name="Banana19" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(14, -515)
+
+[node name="Banana20" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(14, -498)
+
+[node name="Banana21" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(14, -481)
+
+[node name="Banana22" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(14, -463)
+
+[node name="Banana23" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(14, -446)
+
+[node name="Banana24" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(14, -429)
+
+[node name="Banana25" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(14, -412)
+
+[node name="Banana26" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(509, -364)
+
+[node name="Banana27" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(526, -364)
+
+[node name="Banana28" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(542, -364)
+
+[node name="Banana29" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(558, -364)
+
+[node name="Banana30" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(574, -364)
+
+[node name="Banana31" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(590, -364)
+
+[node name="Banana32" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(606, -364)
+
+[node name="Banana33" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(622, -364)
+
+[node name="Banana34" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(638, -364)
+
+[node name="Banana35" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(654, -364)
+
+[node name="Banana36" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(670, -364)
+
+[node name="Banana37" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(686, -364)
+
+[node name="Banana38" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(702, -364)
+
+[node name="Banana39" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(718, -364)
+
+[node name="Banana42" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(932, -299)
+
+[node name="Banana43" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(932, -240)
+
+[node name="Banana44" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(932, -175)
+
+[node name="Banana45" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(932, -104)
+
+[node name="Banana46" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(932, -87)
+
+[node name="Banana47" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(685, -59)
+
+[node name="Banana48" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(614, -59)
+
+[node name="Banana49" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(540, -59)
+
+[node name="Banana50" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(460, -59)
+
+[node name="Banana51" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(185, -87)
+
+[node name="Banana52" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(49, 113)
+
+[node name="Banana53" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(120, 135)
+
+[node name="Banana54" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(193, 166)
+
+[node name="Banana55" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(272, 191)
+
+[node name="Banana56" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(351, 212)
+
+[node name="Banana57" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(493, 223)
+
+[node name="Banana58" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(568, 248)
+
+[node name="Banana59" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(640, 275)
+
+[node name="Banana60" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(714, 299)
+
+[node name="Banana61" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(794, 329)
+
+[node name="Banana40" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(932, -317)
+
+[node name="Banana41" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(932, -317)
+
+[node name="Banana3" parent="Collectibles" instance=ExtResource("24_dxye2")]
+position = Vector2(656, -700)
+
+[node name="StartPoint" parent="." instance=ExtResource("26_ffo63")]
+position = Vector2(471, -784)
+
+[connection signal="pressed" from="PauseCanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]

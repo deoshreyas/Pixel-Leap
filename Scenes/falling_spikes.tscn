@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3yiwru8p6acj"]
+
+[ext_resource type="Script" uid="uid://bs2kklrl73q80" path="res://Scripts/falling_spikes.gd" id="1_12erv"]
+[ext_resource type="Texture2D" uid="uid://crm80he1weti" path="res://Assets/Spikes/Idle.png" id="1_hjiwc"]
+[ext_resource type="PackedScene" uid="uid://d37vkk72w43ie" path="res://Scenes/hitbox.tscn" id="2_8nyx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nyx8"]
+size = Vector2(10.5, 55.75)
+
+[node name="FallingSpikes" type="Node2D"]
+script = ExtResource("1_12erv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hjiwc")
+flip_v = true
+
+[node name="Hitbox" parent="." instance=ExtResource("2_8nyx8")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-8, -8, -8, -6, -7, -4, -6, -2, -5, -1, -4, -1, -3, -2, -2, -4, -1, -6, 0, -6, 1, -4, 2, -2, 3, -1, 4, -1, 5, -2, 6, -4, 7, -6, 7, -8)
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(0, 26.125)
+shape = SubResource("RectangleShape2D_8nyx8")
+
+[node name="GroundCast" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(0, 8)
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

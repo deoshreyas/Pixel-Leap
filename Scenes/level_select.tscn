@@ -1,0 +1,687 @@
+[gd_scene load_steps=113 format=3 uid="uid://cuvd2ukdke5x3"]
+
+[ext_resource type="Script" uid="uid://r3hdfttfwapn" path="res://Scripts/level_select.gd" id="1_d7gog"]
+[ext_resource type="Shader" uid="uid://wqtjpvgabkbc" path="res://Shaders/scroll.gdshader" id="1_nkys2"]
+[ext_resource type="Texture2D" uid="uid://des8oalgvshp1" path="res://Assets/Backgrounds/Blue.png" id="2_nkys2"]
+[ext_resource type="PackedScene" uid="uid://wghvn27fq71t" path="res://Scenes/level_button.tscn" id="3_qnihq"]
+[ext_resource type="Texture2D" uid="uid://d0yu1ncaklb3e" path="res://Assets/Levels/01.png" id="4_tgoug"]
+[ext_resource type="PackedScene" uid="uid://c7m32ps1uerau" path="res://Scenes/Levels/level_1.tscn" id="5_gqox3"]
+[ext_resource type="Texture2D" uid="uid://6lwupvoebvup" path="res://Assets/Levels/02.png" id="5_x038j"]
+[ext_resource type="Texture2D" uid="uid://ctwhq6us6ayol" path="res://Assets/Levels/03.png" id="6_mlwxk"]
+[ext_resource type="Texture2D" uid="uid://cjexfboosdywq" path="res://Assets/Levels/04.png" id="7_npf18"]
+[ext_resource type="PackedScene" uid="uid://b403fyj1gb33r" path="res://Scenes/Levels/level_2.tscn" id="7_ps72n"]
+[ext_resource type="Texture2D" uid="uid://da7jttcyrcyyt" path="res://Assets/Levels/05.png" id="8_bpfon"]
+[ext_resource type="Texture2D" uid="uid://b6uwhx2kkq3ei" path="res://Assets/Levels/06.png" id="9_bpfon"]
+[ext_resource type="Texture2D" uid="uid://vcqgqdwiuhak" path="res://Assets/Levels/07.png" id="10_07bvh"]
+[ext_resource type="PackedScene" uid="uid://ckerugauv8la4" path="res://Scenes/Levels/level_3.tscn" id="10_svalo"]
+[ext_resource type="Texture2D" uid="uid://dge4fajtlrdki" path="res://Assets/Levels/08.png" id="11_ciagn"]
+[ext_resource type="PackedScene" uid="uid://bthy0i7aq3x0e" path="res://Scenes/Levels/level_4.tscn" id="12_3rc8g"]
+[ext_resource type="Texture2D" uid="uid://bob0nal1oi57f" path="res://Assets/Levels/09.png" id="12_yx562"]
+[ext_resource type="Texture2D" uid="uid://dge2lwb2otfk1" path="res://Assets/Levels/10.png" id="13_wn3si"]
+[ext_resource type="PackedScene" uid="uid://cl72oix0latjo" path="res://Scenes/Levels/level_5.tscn" id="14_3ppov"]
+[ext_resource type="Texture2D" uid="uid://blkvijl2rowk3" path="res://Assets/Levels/11.png" id="14_r2u0r"]
+[ext_resource type="Texture2D" uid="uid://diojyunpy7cpk" path="res://Assets/Levels/12.png" id="15_h2rck"]
+[ext_resource type="PackedScene" uid="uid://uiypco1dtxou" path="res://Scenes/Levels/level_6.tscn" id="16_7p4y6"]
+[ext_resource type="Texture2D" uid="uid://cdnovindcvj5v" path="res://Assets/Levels/13.png" id="16_y1k4n"]
+[ext_resource type="Texture2D" uid="uid://mm431wxla1cj" path="res://Assets/Levels/14.png" id="17_y5eva"]
+[ext_resource type="PackedScene" uid="uid://c2vljqswbvda7" path="res://Scenes/Levels/level_7.tscn" id="18_4gamx"]
+[ext_resource type="Texture2D" uid="uid://dg28k850uq34x" path="res://Assets/Levels/15.png" id="18_l15rd"]
+[ext_resource type="Texture2D" uid="uid://cfrwm5wt3xdyg" path="res://Assets/Levels/16.png" id="19_gfib2"]
+[ext_resource type="PackedScene" uid="uid://2gehwja8pocm" path="res://Scenes/Levels/level_8.tscn" id="20_d7ui5"]
+[ext_resource type="Texture2D" uid="uid://cd1mgx0qrytat" path="res://Assets/Levels/17.png" id="20_gqox3"]
+[ext_resource type="Texture2D" uid="uid://1rff6j8guqu5" path="res://Assets/Levels/18.png" id="21_ps72n"]
+[ext_resource type="Texture2D" uid="uid://cwcm8sqkfdxxt" path="res://Assets/Levels/19.png" id="22_1j2gv"]
+[ext_resource type="PackedScene" uid="uid://d08pnwwgxlago" path="res://Scenes/Levels/level_9.tscn" id="22_qrnkx"]
+[ext_resource type="Texture2D" uid="uid://cffs0o4yfjr16" path="res://Assets/Levels/20.png" id="23_a6n8w"]
+[ext_resource type="PackedScene" uid="uid://blx2xo1iccndl" path="res://Scenes/Levels/level_10.tscn" id="24_bihl0"]
+[ext_resource type="Texture2D" uid="uid://cihn1dmdqm007" path="res://Assets/Levels/21.png" id="26_1j2gv"]
+[ext_resource type="PackedScene" uid="uid://df641dwlrneui" path="res://Scenes/Levels/level_11.tscn" id="26_unsxr"]
+[ext_resource type="Texture2D" uid="uid://dxw3cp70dcmim" path="res://Assets/Levels/22.png" id="27_a6n8w"]
+[ext_resource type="PackedScene" uid="uid://cc57srxgysu8s" path="res://Scenes/Levels/level_12.tscn" id="28_ey0yn"]
+[ext_resource type="Texture2D" uid="uid://cgytrtah7immw" path="res://Assets/Levels/23.png" id="28_j2b11"]
+[ext_resource type="Texture2D" uid="uid://bdgw2x6s87erm" path="res://Assets/Levels/24.png" id="29_u7mn1"]
+[ext_resource type="Texture2D" uid="uid://dr5skdm7u1b4k" path="res://Assets/Levels/25.png" id="30_4rr2f"]
+[ext_resource type="PackedScene" uid="uid://dpchpq1gx1dt8" path="res://Scenes/Levels/level_13.tscn" id="30_ijhqx"]
+[ext_resource type="Texture2D" uid="uid://dh1urqp2f0jba" path="res://Assets/Levels/26.png" id="31_nw6ri"]
+[ext_resource type="Texture2D" uid="uid://crwuepo7td2mv" path="res://Assets/Levels/27.png" id="32_dpipj"]
+[ext_resource type="PackedScene" uid="uid://cpih1e612qcf1" path="res://Scenes/Levels/level_14.tscn" id="32_yjej1"]
+[ext_resource type="Texture2D" uid="uid://rdcqbygwo2ny" path="res://Assets/Levels/28.png" id="33_6ucb0"]
+[ext_resource type="PackedScene" uid="uid://bmtl77i7dpr6x" path="res://Scenes/Levels/level_15.tscn" id="34_nqmde"]
+[ext_resource type="Texture2D" uid="uid://b0u6ifgyrd00j" path="res://Assets/Levels/29.png" id="34_tlx2j"]
+[ext_resource type="Texture2D" uid="uid://dddd0erftqkiw" path="res://Assets/Levels/30.png" id="35_sii5o"]
+[ext_resource type="Texture2D" uid="uid://bah3y5h3gm7fa" path="res://Assets/Levels/31.png" id="36_d7gog"]
+[ext_resource type="PackedScene" uid="uid://di2dksb7hopkk" path="res://Scenes/Levels/level_16.tscn" id="36_od658"]
+[ext_resource type="Texture2D" uid="uid://dbe6e81kykwpn" path="res://Assets/Levels/32.png" id="37_rxlfg"]
+[ext_resource type="PackedScene" uid="uid://bcbftkxge833m" path="res://Scenes/Levels/level_17.tscn" id="38_0mq34"]
+[ext_resource type="Texture2D" uid="uid://co6ug1drwbivf" path="res://Assets/Levels/33.png" id="38_qgps1"]
+[ext_resource type="Texture2D" uid="uid://bpp8n5cg8bufu" path="res://Assets/Levels/34.png" id="39_dijly"]
+[ext_resource type="PackedScene" uid="uid://b48ggfoy6tuwv" path="res://Scenes/Levels/level_18.tscn" id="40_32jnp"]
+[ext_resource type="Texture2D" uid="uid://dr3m5aaclp74c" path="res://Assets/Levels/35.png" id="40_isyk5"]
+[ext_resource type="Texture2D" uid="uid://cdssouvqcqur7" path="res://Assets/Levels/36.png" id="41_jou17"]
+[ext_resource type="Texture2D" uid="uid://bqknqca0qmvv5" path="res://Assets/Levels/37.png" id="42_amlj2"]
+[ext_resource type="PackedScene" uid="uid://tpmksqshoabt" path="res://Scenes/Levels/level_19.tscn" id="42_irna6"]
+[ext_resource type="Texture2D" uid="uid://4e6rly7661a5" path="res://Assets/Levels/38.png" id="43_aeppl"]
+[ext_resource type="PackedScene" uid="uid://065hmsq4oyan" path="res://Scenes/Levels/level_20.tscn" id="44_6va82"]
+[ext_resource type="Texture2D" uid="uid://cga6qghblbpm8" path="res://Assets/Levels/39.png" id="44_nomph"]
+[ext_resource type="Texture2D" uid="uid://ckap1emofvslm" path="res://Assets/Levels/40.png" id="45_g3d6i"]
+[ext_resource type="Texture2D" uid="uid://iy8hsqq6otta" path="res://Assets/Buttons/Next.png" id="46_sii5o"]
+[ext_resource type="PackedScene" uid="uid://b4vkq27aid3e5" path="res://Scenes/Levels/level_21.tscn" id="46_y7xf3"]
+[ext_resource type="Texture2D" uid="uid://ceiflc1qcpor" path="res://Assets/Levels/41.png" id="47_dijly"]
+[ext_resource type="PackedScene" uid="uid://b2pgdq6o4n1ad" path="res://Scenes/Levels/level_22.tscn" id="48_7f7dd"]
+[ext_resource type="Texture2D" uid="uid://04ci217j1sbg" path="res://Assets/Levels/42.png" id="48_isyk5"]
+[ext_resource type="Texture2D" uid="uid://dk4phovqr2v7a" path="res://Assets/Buttons/Back.png" id="48_rxlfg"]
+[ext_resource type="Texture2D" uid="uid://bsr6ypufg6tme" path="res://Assets/Levels/43.png" id="49_amlj2"]
+[ext_resource type="Texture2D" uid="uid://bby64h1h7d6a" path="res://Assets/Levels/44.png" id="50_aeppl"]
+[ext_resource type="PackedScene" uid="uid://b8dyyj7d2pt2p" path="res://Scenes/Levels/level_23.tscn" id="50_exg6e"]
+[ext_resource type="Texture2D" uid="uid://ntkona5lqt8o" path="res://Assets/Levels/45.png" id="51_nomph"]
+[ext_resource type="PackedScene" uid="uid://cknxgvra22elj" path="res://Scenes/Levels/level_24.tscn" id="52_4jf8d"]
+[ext_resource type="Texture2D" uid="uid://u5ebrsxw63ug" path="res://Assets/Levels/46.png" id="52_648t6"]
+[ext_resource type="Texture2D" uid="uid://b577md3d8fw0g" path="res://Assets/Levels/47.png" id="53_svalo"]
+[ext_resource type="Texture2D" uid="uid://dwyb1m6wegwvi" path="res://Assets/Levels/48.png" id="54_3rc8g"]
+[ext_resource type="PackedScene" uid="uid://dsql7cfnu54f3" path="res://Scenes/Levels/level_25.tscn" id="54_066bd"]
+[ext_resource type="Texture2D" uid="uid://v6i0e8c20iek" path="res://Assets/Levels/49.png" id="55_3ppov"]
+[ext_resource type="Texture2D" uid="uid://dro03stdi5voe" path="res://Assets/Levels/50.png" id="56_7p4y6"]
+[ext_resource type="PackedScene" uid="uid://dyvvrfrtsireo" path="res://Scenes/Levels/level_26.tscn" id="56_n4in6"]
+[ext_resource type="PackedScene" uid="uid://dn6a72g4ewbgv" path="res://Scenes/Levels/level_27.tscn" id="58_imjb6"]
+[ext_resource type="PackedScene" uid="uid://dph0hmtqu1cf4" path="res://Scenes/Levels/level_28.tscn" id="60_lge62"]
+[ext_resource type="PackedScene" uid="uid://emcscyalh2qb" path="res://Scenes/Levels/level_29.tscn" id="62_32hbp"]
+[ext_resource type="PackedScene" uid="uid://bryy2m5xxy7oj" path="res://Scenes/Levels/level_30.tscn" id="64_wnqt5"]
+[ext_resource type="PackedScene" uid="uid://b3lfi24lhig8a" path="res://Scenes/Levels/level_31.tscn" id="66_fkwi3"]
+[ext_resource type="PackedScene" uid="uid://cqgid53wggf7g" path="res://Scenes/Levels/level_32.tscn" id="68_u5jsj"]
+[ext_resource type="PackedScene" uid="uid://dnk4jxqy8ral6" path="res://Scenes/Levels/level_33.tscn" id="70_6ic1r"]
+[ext_resource type="PackedScene" uid="uid://bkt3rdgtvlvrb" path="res://Scenes/Levels/level_34.tscn" id="72_ymoc7"]
+[ext_resource type="PackedScene" uid="uid://c4i2u6xgygt40" path="res://Scenes/Levels/level_35.tscn" id="74_nt4i8"]
+[ext_resource type="PackedScene" uid="uid://dpmntf10kgc0i" path="res://Scenes/Levels/level_36.tscn" id="76_xon3k"]
+[ext_resource type="PackedScene" uid="uid://d1tcl8titjatw" path="res://Scenes/Levels/level_37.tscn" id="78_2s28s"]
+[ext_resource type="PackedScene" uid="uid://d08pdkoli1a06" path="res://Scenes/Levels/level_38.tscn" id="80_8hbvd"]
+[ext_resource type="PackedScene" uid="uid://b474xphw3oryn" path="res://Scenes/Levels/level_39.tscn" id="82_eibfy"]
+[ext_resource type="PackedScene" uid="uid://bbfn654iccasn" path="res://Scenes/Levels/level_40.tscn" id="84_amjnu"]
+[ext_resource type="PackedScene" uid="uid://o006td3flw0p" path="res://Scenes/Levels/level_41.tscn" id="85_cqa1s"]
+[ext_resource type="PackedScene" uid="uid://bp3c0ncadhtb7" path="res://Scenes/Levels/level_42.tscn" id="87_6y8hi"]
+[ext_resource type="PackedScene" uid="uid://dsxge7lyu6k4e" path="res://Scenes/Levels/level_43.tscn" id="89_ykpwe"]
+[ext_resource type="PackedScene" uid="uid://ca6q8vmjhw7vu" path="res://Scenes/Levels/level_44.tscn" id="90_7qrc6"]
+[ext_resource type="PackedScene" uid="uid://cjdc4vpxeydl4" path="res://Scenes/Levels/level_45.tscn" id="93_4q558"]
+[ext_resource type="PackedScene" uid="uid://m6pv4h0myr2e" path="res://Scenes/Levels/level_46.tscn" id="95_065xw"]
+[ext_resource type="PackedScene" uid="uid://cv8drdnlh7x0j" path="res://Scenes/Levels/level_47.tscn" id="97_uoql7"]
+[ext_resource type="PackedScene" uid="uid://clgrbsxfd2l1e" path="res://Scenes/Levels/level_48.tscn" id="99_p7tbn"]
+[ext_resource type="PackedScene" uid="uid://d332gyf46xb1n" path="res://Scenes/Levels/level_49.tscn" id="101_65ucj"]
+[ext_resource type="PackedScene" uid="uid://bdq4p024qd34e" path="res://Scenes/Levels/level_50.tscn" id="103_ovxp1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2sqnl"]
+shader = ExtResource("1_nkys2")
+shader_parameter/speed = 0.25
+shader_parameter/x_movement = true
+shader_parameter/y_movement = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgps1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7gog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxlfg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_isyk5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jou17"]
+
+[node name="Level Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d7gog")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_2sqnl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nkys2")
+stretch_mode = 1
+
+[node name="Container1" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -156.0
+offset_right = 195.5
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container1"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level1" parent="Container1/HBoxContainer" instance=ExtResource("3_qnihq")]
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qgps1")
+icon = ExtResource("4_tgoug")
+Level = ExtResource("5_gqox3")
+Icon = ExtResource("4_tgoug")
+
+[node name="Level2" parent="Container1/HBoxContainer" instance=ExtResource("3_qnihq")]
+layout_mode = 2
+icon = ExtResource("5_x038j")
+Name = "02"
+Level = ExtResource("7_ps72n")
+Icon = ExtResource("5_x038j")
+
+[node name="Level3" parent="Container1/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("6_mlwxk")
+Name = "03"
+Level = ExtResource("10_svalo")
+Icon = ExtResource("6_mlwxk")
+
+[node name="Level4" parent="Container1/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("7_npf18")
+Name = "04"
+Level = ExtResource("12_3rc8g")
+Icon = ExtResource("7_npf18")
+
+[node name="Level5" parent="Container1/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("8_bpfon")
+Name = "05"
+Level = ExtResource("14_3ppov")
+Icon = ExtResource("8_bpfon")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Container1"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level6" parent="Container1/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("9_bpfon")
+Name = "06"
+Level = ExtResource("16_7p4y6")
+Icon = ExtResource("9_bpfon")
+
+[node name="Level7" parent="Container1/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("10_07bvh")
+Name = "07"
+Level = ExtResource("18_4gamx")
+Icon = ExtResource("10_07bvh")
+
+[node name="Level8" parent="Container1/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("11_ciagn")
+Name = "08"
+Level = ExtResource("20_d7ui5")
+Icon = ExtResource("11_ciagn")
+
+[node name="Level9" parent="Container1/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("12_yx562")
+Name = "09"
+Level = ExtResource("22_qrnkx")
+Icon = ExtResource("12_yx562")
+
+[node name="Level10" parent="Container1/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("13_wn3si")
+Name = "10"
+Level = ExtResource("24_bihl0")
+Icon = ExtResource("13_wn3si")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Container1"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level11" parent="Container1/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("14_r2u0r")
+Name = "11"
+Level = ExtResource("26_unsxr")
+Icon = ExtResource("14_r2u0r")
+
+[node name="Level12" parent="Container1/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("15_h2rck")
+Name = "12"
+Level = ExtResource("28_ey0yn")
+Icon = ExtResource("15_h2rck")
+
+[node name="Level13" parent="Container1/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("16_y1k4n")
+Name = "13"
+Level = ExtResource("30_ijhqx")
+Icon = ExtResource("16_y1k4n")
+
+[node name="Level14" parent="Container1/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("17_y5eva")
+Name = "14"
+Level = ExtResource("32_yjej1")
+Icon = ExtResource("17_y5eva")
+
+[node name="Level15" parent="Container1/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("18_l15rd")
+Name = "15"
+Level = ExtResource("34_nqmde")
+Icon = ExtResource("18_l15rd")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Container1"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level16" parent="Container1/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("19_gfib2")
+Name = "16"
+Level = ExtResource("36_od658")
+Icon = ExtResource("19_gfib2")
+
+[node name="Level17" parent="Container1/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("20_gqox3")
+Name = "17"
+Level = ExtResource("38_0mq34")
+Icon = ExtResource("20_gqox3")
+
+[node name="Level18" parent="Container1/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("21_ps72n")
+Name = "18"
+Level = ExtResource("40_32jnp")
+Icon = ExtResource("21_ps72n")
+
+[node name="Level19" parent="Container1/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("22_1j2gv")
+Name = "19"
+Level = ExtResource("42_irna6")
+Icon = ExtResource("22_1j2gv")
+
+[node name="Level20" parent="Container1/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("23_a6n8w")
+Name = "20"
+Level = ExtResource("44_6va82")
+Icon = ExtResource("23_a6n8w")
+
+[node name="Container2" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -156.0
+offset_right = 195.5
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level21" parent="Container2/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("26_1j2gv")
+Name = "21"
+Level = ExtResource("46_y7xf3")
+Icon = ExtResource("26_1j2gv")
+
+[node name="Level22" parent="Container2/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("27_a6n8w")
+Name = "22"
+Level = ExtResource("48_7f7dd")
+Icon = ExtResource("27_a6n8w")
+
+[node name="Level23" parent="Container2/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("28_j2b11")
+Name = "23"
+Level = ExtResource("50_exg6e")
+Icon = ExtResource("28_j2b11")
+
+[node name="Level24" parent="Container2/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("29_u7mn1")
+Name = "24"
+Level = ExtResource("52_4jf8d")
+Icon = ExtResource("29_u7mn1")
+
+[node name="Level25" parent="Container2/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("30_4rr2f")
+Name = "25"
+Level = ExtResource("54_066bd")
+Icon = ExtResource("30_4rr2f")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Container2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level26" parent="Container2/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("31_nw6ri")
+Name = "26"
+Level = ExtResource("56_n4in6")
+Icon = ExtResource("31_nw6ri")
+
+[node name="Level27" parent="Container2/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("32_dpipj")
+Name = "27"
+Level = ExtResource("58_imjb6")
+Icon = ExtResource("32_dpipj")
+
+[node name="Level28" parent="Container2/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("33_6ucb0")
+Name = "28"
+Level = ExtResource("60_lge62")
+Icon = ExtResource("33_6ucb0")
+
+[node name="Level29" parent="Container2/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("34_tlx2j")
+Name = "29"
+Level = ExtResource("62_32hbp")
+Icon = ExtResource("34_tlx2j")
+
+[node name="Level30" parent="Container2/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("35_sii5o")
+Name = "30"
+Level = ExtResource("64_wnqt5")
+Icon = ExtResource("35_sii5o")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Container2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level31" parent="Container2/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("36_d7gog")
+Name = "31"
+Level = ExtResource("66_fkwi3")
+Icon = ExtResource("36_d7gog")
+
+[node name="Level32" parent="Container2/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("37_rxlfg")
+Name = "32"
+Level = ExtResource("68_u5jsj")
+Icon = ExtResource("37_rxlfg")
+
+[node name="Level33" parent="Container2/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("38_qgps1")
+Name = "33"
+Level = ExtResource("70_6ic1r")
+Icon = ExtResource("38_qgps1")
+
+[node name="Level34" parent="Container2/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("39_dijly")
+Name = "34"
+Level = ExtResource("72_ymoc7")
+Icon = ExtResource("39_dijly")
+
+[node name="Level35" parent="Container2/HBoxContainer3" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("40_isyk5")
+Name = "35"
+Level = ExtResource("74_nt4i8")
+Icon = ExtResource("40_isyk5")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Container2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level36" parent="Container2/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("41_jou17")
+Name = "36"
+Level = ExtResource("76_xon3k")
+Icon = ExtResource("41_jou17")
+
+[node name="Level37" parent="Container2/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("42_amlj2")
+Name = "37"
+Level = ExtResource("78_2s28s")
+Icon = ExtResource("42_amlj2")
+
+[node name="Level38" parent="Container2/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("43_aeppl")
+Name = "38"
+Level = ExtResource("80_8hbvd")
+Icon = ExtResource("43_aeppl")
+
+[node name="Level39" parent="Container2/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("44_nomph")
+Name = "39"
+Level = ExtResource("82_eibfy")
+Icon = ExtResource("44_nomph")
+
+[node name="Level40" parent="Container2/HBoxContainer4" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("45_g3d6i")
+Name = "40"
+Level = ExtResource("84_amjnu")
+Icon = ExtResource("45_g3d6i")
+
+[node name="Container3" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -156.0
+offset_right = 195.5
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level41" parent="Container3/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("26_1j2gv")
+Name = "41"
+Level = ExtResource("85_cqa1s")
+Icon = ExtResource("47_dijly")
+
+[node name="Level42" parent="Container3/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("27_a6n8w")
+Name = "42"
+Level = ExtResource("87_6y8hi")
+Icon = ExtResource("48_isyk5")
+
+[node name="Level43" parent="Container3/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("28_j2b11")
+Name = "43"
+Level = ExtResource("89_ykpwe")
+Icon = ExtResource("49_amlj2")
+
+[node name="Level44" parent="Container3/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("29_u7mn1")
+Name = "44"
+Level = ExtResource("90_7qrc6")
+Icon = ExtResource("50_aeppl")
+
+[node name="Level45" parent="Container3/HBoxContainer" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("30_4rr2f")
+Name = "45"
+Level = ExtResource("93_4q558")
+Icon = ExtResource("51_nomph")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Container3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Level46" parent="Container3/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("31_nw6ri")
+Name = "46"
+Level = ExtResource("95_065xw")
+Icon = ExtResource("52_648t6")
+
+[node name="Level47" parent="Container3/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("32_dpipj")
+Name = "47"
+Level = ExtResource("97_uoql7")
+Icon = ExtResource("53_svalo")
+
+[node name="Level48" parent="Container3/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("33_6ucb0")
+Name = "48"
+Level = ExtResource("99_p7tbn")
+Icon = ExtResource("54_3rc8g")
+
+[node name="Level49" parent="Container3/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("34_tlx2j")
+Name = "49"
+Level = ExtResource("101_65ucj")
+Icon = ExtResource("55_3ppov")
+
+[node name="Level50" parent="Container3/HBoxContainer2" instance=ExtResource("3_qnihq")]
+modulate = Color(0.5, 0.5, 0.5, 1)
+layout_mode = 2
+icon = ExtResource("35_sii5o")
+Name = "50"
+Level = ExtResource("103_ovxp1")
+Icon = ExtResource("56_7p4y6")
+
+[node name="PreviousButton" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = -25.0
+offset_right = 118.0
+offset_bottom = 25.0
+grow_vertical = 2
+scale = Vector2(-1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d7gog")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rxlfg")
+icon = ExtResource("46_sii5o")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NextButton" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -25.0
+offset_right = -18.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d7gog")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rxlfg")
+icon = ExtResource("46_sii5o")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 62.0
+offset_bottom = 61.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_isyk5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jou17")
+icon = ExtResource("48_rxlfg")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqddi5vipsgwg"]
+
+[ext_resource type="Texture2D" uid="uid://b3v7bfes31fme" path="res://Assets/Spiked Ball/Chain.png" id="1_3v2na"]
+[ext_resource type="Texture2D" uid="uid://c6343ndkprqec" path="res://Assets/Spiked Ball/Spiked Ball.png" id="2_gv78u"]
+[ext_resource type="PackedScene" uid="uid://d37vkk72w43ie" path="res://Scenes/hitbox.tscn" id="4_80rq5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_grdjx"]
+radius = 13.0384
+
+[sub_resource type="Animation" id="Animation_ymn46"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.872665]
+}
+
+[sub_resource type="Animation" id="Animation_3lqfa"]
+resource_name = "Rotate"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.872665, -0.872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fqpme"]
+_data = {
+&"RESET": SubResource("Animation_ymn46"),
+&"Rotate": SubResource("Animation_3lqfa")
+}
+
+[node name="Spike Ball Enemy" type="Node2D"]
+rotation = -0.872665
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 93)
+width = 5.0
+texture = ExtResource("1_3v2na")
+texture_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 92)
+texture = ExtResource("2_gv78u")
+
+[node name="Hitbox" parent="." instance=ExtResource("4_80rq5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 92)
+shape = SubResource("CircleShape2D_grdjx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fqpme")
+}
+autoplay = "Rotate"

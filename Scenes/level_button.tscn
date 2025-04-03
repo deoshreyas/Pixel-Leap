@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://wghvn27fq71t"]
+
+[ext_resource type="Script" uid="uid://kb4k4v56okfn" path="res://Scripts/level_button.gd" id="1_iapje"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iapje"]
+
+[node name="Level Button" type="Button"]
+custom_minimum_size = Vector2(75, 75)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iapje")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_iapje")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

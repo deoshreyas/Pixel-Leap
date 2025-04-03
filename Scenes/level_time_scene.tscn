@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bula7j02vorbt"]
+
+[ext_resource type="Script" uid="uid://4pnli76iflls" path="res://Scripts/level_time_scene.gd" id="1_aav01"]
+[ext_resource type="Texture2D" uid="uid://d0yu1ncaklb3e" path="res://Assets/Levels/01.png" id="2_4ql0t"]
+[ext_resource type="FontFile" uid="uid://b17841n0v0l54" path="res://Assets/Text/Pixel Font.ttf" id="3_vi2lw"]
+
+[node name="Level Time Scene" type="HBoxContainer"]
+offset_right = 119.0
+offset_bottom = 40.0
+script = ExtResource("1_aav01")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_4ql0t")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("3_vi2lw")
+theme_override_font_sizes/normal_font_size = 15
+text = "0.0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1

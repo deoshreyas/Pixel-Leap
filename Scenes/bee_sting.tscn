@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjvflvqb5wj1l"]
+
+[ext_resource type="Texture2D" uid="uid://d2xl0dc1d0url" path="res://Assets/Bee/Bullet.png" id="1_0ew5a"]
+[ext_resource type="Script" uid="uid://butrd2e8t7men" path="res://Scripts/bee_sting.gd" id="2_sgn81"]
+[ext_resource type="PackedScene" uid="uid://d37vkk72w43ie" path="res://Scenes/hitbox.tscn" id="3_n1pxc"]
+
+[node name="Bee Sting" type="Sprite2D"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_0ew5a")
+script = ExtResource("2_sgn81")
+
+[node name="TerrainCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 10)
+
+[node name="Hitbox" parent="." instance=ExtResource("3_n1pxc")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-4, -1.33333, -4, 1.33333, -2.66667, 1.33333, -2.66667, 2.66667, -2.66667, 4, -1.33333, 4, -1.33333, 5.33333, 1.33333, 5.33333, 1.33333, 4, 2.66667, 4, 2.66667, 1.33333, 4, 1.33333, 4, -1.33333, 1.33333, -4, -1.33333, -4)

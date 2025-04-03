@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://bppldiie1pb18"]
+
+[ext_resource type="Texture2D" uid="uid://mx77xgvtc13h" path="res://Assets/Backgrounds/Pink.png" id="1_4geyq"]
+[ext_resource type="Script" uid="uid://1xclhd33fmyu" path="res://Scripts/settings.gd" id="1_aaqfp"]
+[ext_resource type="Shader" uid="uid://wqtjpvgabkbc" path="res://Shaders/scroll.gdshader" id="1_i44u3"]
+[ext_resource type="Texture2D" uid="uid://dk4phovqr2v7a" path="res://Assets/Buttons/Back.png" id="3_lhmql"]
+[ext_resource type="Texture2D" uid="uid://bc78mubdc6mv0" path="res://Assets/Buttons/Delete.png" id="5_j2dne"]
+[ext_resource type="Texture2D" uid="uid://db1u1kbu5jw2m" path="res://Assets/Buttons/Volume.png" id="6_6kysc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhmql"]
+shader = ExtResource("1_i44u3")
+shader_parameter/speed = 0.25
+shader_parameter/x_movement = true
+shader_parameter/y_movement = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aaqfp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2dne"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6kysc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vr2p"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aaqfp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_lhmql")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4geyq")
+stretch_mode = 1
+
+[node name="BackButton" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 12.0
+offset_top = 11.0
+offset_right = 62.0
+offset_bottom = 61.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aaqfp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j2dne")
+icon = ExtResource("3_lhmql")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -37.5
+offset_right = 77.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResetButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6kysc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6vr2p")
+icon = ExtResource("5_j2dne")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="VolumeButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6kysc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6vr2p")
+icon = ExtResource("6_6kysc")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VolumeButton" to="." method="_on_volume_button_pressed"]

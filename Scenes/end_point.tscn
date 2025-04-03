@@ -1,0 +1,116 @@
+[gd_scene load_steps=17 format=3 uid="uid://46r5lb86ioa7"]
+
+[ext_resource type="Texture2D" uid="uid://bbnb85yylokv6" path="res://Assets/Checkpoints/End/End (Idle).png" id="1_ci7n1"]
+[ext_resource type="Script" uid="uid://dbtasn0yep5y1" path="res://Scripts/end_point.gd" id="1_n4r6u"]
+[ext_resource type="PackedScene" uid="uid://1g50li1gib46" path="res://Scenes/confetti.tscn" id="2_lenbd"]
+[ext_resource type="Texture2D" uid="uid://doyqbuhxlmsdu" path="res://Assets/Checkpoints/End/End (Pressed) (64x64).png" id="2_n4r6u"]
+[ext_resource type="Texture2D" uid="uid://de5ri2ibvn14h" path="res://Assets/Buttons/Close.png" id="5_fl78f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lenbd"]
+atlas = ExtResource("1_ci7n1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl78f"]
+atlas = ExtResource("2_n4r6u")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4hpv"]
+atlas = ExtResource("2_n4r6u")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_764xp"]
+atlas = ExtResource("2_n4r6u")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et15e"]
+atlas = ExtResource("2_n4r6u")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8iqr"]
+atlas = ExtResource("2_n4r6u")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uldqt"]
+atlas = ExtResource("2_n4r6u")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfptb"]
+atlas = ExtResource("2_n4r6u")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6rlt"]
+atlas = ExtResource("2_n4r6u")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ch3iu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lenbd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl78f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4hpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_764xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et15e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8iqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uldqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfptb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6rlt")
+}],
+"loop": false,
+"name": &"reached",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcs5o"]
+size = Vector2(32, 8)
+
+[node name="EndPoint" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_n4r6u")
+
+[node name="Confetti" parent="." instance=ExtResource("2_lenbd")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ch3iu")
+animation = &"reached"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 28)
+shape = SubResource("RectangleShape2D_tcs5o")
+
+[node name="CrossSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -24)
+texture = ExtResource("5_fl78f")
+
+[node name="CrossTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="CrossTimer" to="." method="_on_cross_timer_timeout"]
